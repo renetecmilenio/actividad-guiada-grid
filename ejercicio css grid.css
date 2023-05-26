@@ -2,7 +2,7 @@
 
 body {
     /* 1. Estiliza el cuerpo de la página web con un patrón, es decir, una imagen que se va repitiendo.(background-image) */
-    background-image: url(images\ Flexbox/bg.png);
+    background-image: url(imagesGrid/bg.png);
     /* 2. Asigna una fuente desde Google, Manjari, la cual ya está siendo importada en el HTML, pero no está siendo usada en el CSS. */
     font-family: "Manjari", sans-serif;
 }
