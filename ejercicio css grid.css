@@ -1,0 +1,129 @@
+/* General Styles */
+
+body {
+    /* 1. Estiliza el cuerpo de la página web con un patrón, es decir, una imagen que se va repitiendo.(background-image) */
+    background-image: url(images\ Flexbox/bg.png);
+    /* 2. Asigna una fuente desde Google, Manjari, la cual ya está siendo importada en el HTML, pero no está siendo usada en el CSS. */
+    font-family: "Manjari", sans-serif;
+}
+
+/* HEADER */
+/* 3. Estiliza el h1 que se encuentra dentro del header asignando un padding de 20px 0, el texto centrado, un tamaño de fuente de 2.9em y asegúrate que
+el título siempre esté en mayúsculas. */
+header h1 {
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+header.title {
+    text-align: center;
+}
+
+/* CONTAINER */
+/* 4. Añade un fondo blanco al contenedor, asigna un ancho de 90%, un ancho máximo de 1000px, un margen de 1.6em arriba y abajo, así también un
+automático hacia los lados. También agrega el valor de grid a la propiedad display y un espaciado entre todos los contenedores de 1.6em, y crea 5
+columnas de 1 fracción. */
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+    margin: auto;
+    display: grid;
+    /* esta es otra manera de establecer el valor en grid, primer valor cantidad de columnas y el segundo valor el tamaño de la columna a lo ancho  */
+    grid-template-columns: repeat(5, 1fr);
+    /* espacio entre elementos */
+    gap: 20px;
+}
+
+/* 5. Para el header, content, sidebar, footer y todos los elementos que están dentro del container, asigna un fondo blanco, un padding de 20px y un borde
+de 1px sólido de color negro. */
+.container header,
+.content,
+.sidebar,
+.footer,
+.related-post {
+    background-color: white;
+    padding: 20px;
+    border: solid 1px #000;
+}
+
+/* 6. Para el header y el footer del container asígnales de fondo el color #1e272e, color de texto blanco e indica que la grilla abarca desde la línea 1 hasta la
+línea 6. */
+.container header,
+footer.footer {
+    background-color: #1e272e;
+    color: white;
+    grid-column: 1/6;
+}
+
+/* 7. Haz que el contenido del container abarque 3 columnas. */
+main.content {
+    /* la propiedad grid-column establece desde que linea a que linea debe posicionarse el elemento del selector en este caso .main.content */
+    /* el primer valor (1) es desde donde quieres abarcar el elemento y se refiere a la "linea inicial" de la columna donde quieres que inicie el elemento y el segundo (4) es la "línea final" donde quieres que termine el elemento,  en este caso quiero que mi elemento inicie desde el principio de las columnas y termine al final de la columna 3 )*/
+    grid-column: 1/4;
+}
+
+/* 8. Haz que la barra lateral del container abarque 2 columnas, un color de fondo #485460 y color de texto blanco, un display flex, el justificado del
+contenido debe estar al centro, la alineación de los ítems también, es decir, tanto vertical como horizontal deberá estar centrado y asigna la flex-direction para que la alineación sea vertical. */
+aside.sidebar {
+        /* para este elemento inicia en la linea 4 que es el final de la columna 3 y termina en la linea 6 que es el final de la columna 5  */
+    grid-column: 4/6;
+    background-color: #485460;
+    color: white;
+       /* recordar siempre que puedes combinar el uso de Flexbox y Grid, que sería lo óptimo, dominar el uso de estas 2 técnicas, flexbox tiene menos propiedades por eso es recomendable aprenderlo primero y despues grid que al ser bidimensional (filas y columnas) tiene más pripiedades y métodos de acomodo */
+
+    /* aqupi estamos usando flexbox dentro de un elemento de grid */
+    display: flex;
+
+    /* alinea los elementos en el eje principal en este caso en vertical */
+    justify-content: center;
+    /* alinea los elementos en el eje transversal, en este caso en el eje horizontal */
+    align-items: center;
+    /* el contenido se comporta en columna en vertival lo cual convierte en vertical al eje principal */
+    flex-direction: column;
+}
+
+/* 9. Logra que las imágenes de la barra lateral del container ocupen un ancho del 100%, un margen superior de 5px. */
+aside.sidebar img {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* 10. Asigna a los artículos del content el color de fondo #808e9b, un padding de 20px, un margen superior de 5px para que se separen las tarjetas y un
+color de texto #dfe6e9. */
+article {
+    background-color: #808e9b;
+    padding: 20px;
+    margin-top: 5px;
+    color: #dfe6e9;
+}
+
+/* 11. Asigna al párrafo y al título h1 de los artículos del content un padding de 10px. */
+article p,
+article h1 {
+    padding: 10px;
+}
+
+/* 12. Para todos los related post del container, cambia el fondo y asigna el color #2d3436, asigna el color blanco al texto, coloca un alto de 180px, utiliza
+nuevamente Flexbox para alinear los ítems y el contenido justificado al centro y una propiedad de transición con los valores all, el tiempo 0.5s y el
+efecto ease. */
+.related-post {
+    background-color: #2d3436;
+    color: white;
+    height: 180px;
+    /* estas propiedades es para centrar el contenido de elementos, en este caso el texto "otra publicación" se centra en horizontal y verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* esta prpiedad es para crear una transisión al pasar el mouse */
+    transition: all 0.5s ease;
+}
+/* 13. Cuando pases el ratón sobre los related post del container, haz que cambie de color asignando un color de fondo blanco, el color del texto en negro y
+un cursor con el valor pointer. */
+.related-post:hover {
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+}
